@@ -70,6 +70,7 @@ export const SERIES_SPECS = [
 			gainValue: true,
 			preset: true,
 			colorTemperature: false,
+			uhdCrop: true, // UHD Crop Output + SDI/IP Enable
 		},
 		feedbacks: {
 			powerState: true, // Power State (p1 or p0)
@@ -79,6 +80,7 @@ export const SERIES_SPECS = [
 			autoFocus: true, // Has Auto Focus (OAF:1 or OAF:0)
 			autoIris: true, // Has Auto Iris (d30 or d31)
 			preset: true,
+			uhdCrop: true, // UHD Crop Output + SDI/IP Enable
 		},
 		actions: {
 			panTilt: true, // Has Pan/Tilt Support (PTSxx)
@@ -103,6 +105,7 @@ export const SERIES_SPECS = [
 			ins: true, // Has Install Position Control (INSx)
 			sdCard: true, // Has SD Card Recording Control (sdctrl?save=start or sdctrl?save=end)
 			colorTemperature: false, // Setting Color temperature OSD:B1:A8h
+			uhdCrop: true, // UHD Crop
 		},
 	},
 
@@ -265,6 +268,7 @@ export const SERIES_SPECS = [
 			gainValue: true,
 			preset: true,
 			colorTemperature: false,
+			uhdCrop: true,
 		},
 		feedbacks: {
 			powerState: true,
@@ -274,6 +278,7 @@ export const SERIES_SPECS = [
 			autoFocus: true,
 			autoIris: true,
 			preset: true,
+			uhdCrop: true,
 		},
 		actions: {
 			panTilt: true,

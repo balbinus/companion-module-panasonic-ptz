@@ -2012,11 +2012,12 @@ export function getPresetDefinitions(self) {
 
 	if (seriesActions.uhdCrop) {
 		const cropColors = {yellow: [255, 255, 0], green: [0, 255, 0], magenta: [255, 0, 255]}; // [r, g, b]
-		var color, rgb, black, actionPrefix;
+		var color, rgb, rgb_dim, black, actionPrefix;
 		for (color in cropColors) {
-			rgb = combineRgb(cropColors[color][0], cropColors[color][1], cropColors[color][2]);
-			black = combineRgb(0, 0, 0);
-			actionPrefix = 'uhdCrop' + (color.charAt(0).toUpperCase() + color.slice(1));
+			rgb = combineRgb(cropColors[color][0], cropColors[color][1], cropColors[color][2])
+			rgb_dim = combineRgb(Math.max(192, cropColors[color][0]), Math.max(192, cropColors[color][1]), Math.max(192, cropColors[color][2]))
+			black = combineRgb(0, 0, 0)
+			actionPrefix = 'uhdCrop' + (color.charAt(0).toUpperCase() + color.slice(1))
 
 			presets[`${color}-pan-tilt-up`] = {
 				type: 'button',
@@ -2274,7 +2275,7 @@ export function getPresetDefinitions(self) {
 					text: 'Crop Out ' + (color.charAt(0).toUpperCase() + color.slice(1)),
 					size: 'auto',
 					color: black,
-					bgcolor: rgb,
+					bgcolor: rgb_dim,
 				},
 				steps: [
 					{
@@ -2287,7 +2288,17 @@ export function getPresetDefinitions(self) {
 						up: [],
 					},
 				],
-				feedbacks: [],
+				feedbacks: [
+					{
+						feedbackId: 'uhdCropOutputSelection',
+						options: {
+							option: (color.charAt(0).toUpperCase() + color.slice(1)),
+						},
+						style: {
+							bgcolor: rgb,
+						},
+					},
+				],
 			}
 		}
 	}
