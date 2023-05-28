@@ -298,6 +298,7 @@ export const SERIES_SPECS = [
 			tally2: true,
 			sdCard: false,
 			colorTemperature: false,
+			uhdCrop: true,
 		},
 	},
 
